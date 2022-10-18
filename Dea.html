@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar With Toggled Submenu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+</head>
+
+<style>
+    *{
+        margin: 0;
+        font-family: cursive;
+
+    }
+
+    .sidebar {
+        width: 300px;
+        min-height: 100vh;
+        background: rgb(30, 30, 30);
+    }
+
+    .sidebar-header {
+        background: rgb(0, 0, 0);
+        color: #fff;
+        font-size: 1,5em;
+        padding: 15px 5px;
+    }
+
+    .sidebar-body {
+        color: #fff;
+    }
+
+    .menu-container, .submenu-container {
+        padding: 0;
+    }
+
+    .main-menu>a, .parent-menu a {
+        color: #fff;
+        text-decoration: none;
+        width: 100%;
+        display: block;
+        padding: 15px 20px;
+    }
+
+    .main-menu:hover, .sub-menu:hover {
+        background: #fff ;
+        border-right: solid 8px rgb(255, 123, 0); 
+    }
+
+    .main-menu:hover a, .sub-menu:hover a {
+        color: #000;
+    }
+
+    .parent-menu div {
+        display: flex;
+        align-items: center;
+        padding-right: 15px;
+    }
+
+    .submenu-container {
+        background: rgb(60, 60, 60);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .shown {
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            Menu
+        </div>
+        <div class="sidebar-body">
+            <ul class="menu-container">
+                <li class="main-menu">
+                    <a href="Isi/Dashboard.html">Dashboard</a>
+                </li>
+                <li class="parent-menu" onclick="toggleSubMenu('submenu-office')" >
+                    <div>
+                    <a href="#">Pembuka</a>
+                    <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <ul class="submenu-container hidden" id="submenu-office"></i>
+                        <li class="sub-menu"><a href="Isi/katapengantar.html">Kata Pengantar</a></li>
+                        <li class="sub-menu"><a href="Isi/latarbelakang.html">Latar Belakang</a></li>
+                    </ul>
+                </li>
+                <li class="parent-menu" onclick="toggleSubMenu('submenu-about')">
+                    <div>
+                    <a href="#">Materi</a>
+                    <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <ul class="submenu-container hidden" id="submenu-about"></i>
+                        <li class="sub-menu"><a href="Isi/BilanganBulat.html">Bilangan Bulat</a></li>
+                        <li class="sub-menu"><a href="Isi/OperasiBilanganBulat.html">Operasi Bilangan Bulat</a></li>
+                        <li class="sub-menu"><a href="Isi/Sifat-sifatBilanganBulat.html">Sifat - Sifat Bilangan Bulat</a></li>
+                        <li class="sub-menu"><a href="Isi/AkarKuadratdanAkarPangkatTiga.html">Akar Pangkat Dua dan Akar Pangkat Tiga</a></li>
+                    </ul>
+                </li>
+                <li class="main-menu">
+                    <a href="Isi/Biografi.html">Biografi</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubMenu (submenuId) {
+            let submenu = document.getElementById (submenuId)
+
+        if(submenu.classList.contains('hidden')) {
+            submenu.classList.remove('hidden')
+            submenu.classList.add('shown')
+        }
+        else {
+            submenu.classList.remove('shown')
+            submenu.classList.add('hidden')
+        }
+        }
+    </script>
+</body>
+</html>
